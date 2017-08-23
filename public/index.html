@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+ ! Excerpted from "Serverless Single Page Apps",
+ ! published by The Pragmatic Bookshelf.
+ ! Copyrights apply to this code. It may not be used to create training material,
+ ! courses, books, articles, and the like. Contact us if you are in doubt.
+ ! We make no guarantees that this code is fit for any purpose.
+ ! Visit http://www.pragmaticprogrammer.com/titles/brapps for more book information.
+-->
 <html>
   <head>
     <meta charset='utf-8'>
@@ -14,14 +22,23 @@
     </style>
   </head>
   <body>
-    <div class='container'>
-      <div class='one-half column'>
-        <h3>Lean JavaScript, one puzzle at a time.</h3>
-        <a href=' ' class='button button-primary'>Start Now!</a>
-      </div>
-      <div class='one-half column'>
-        <img src='/images/HeroImage.jpg'>
+    <div class='markup'>
+      <div class='view-container container'>
+        <div class='landing-view'>
+          <div class='row'>
+            <div class='one-half column'>
+              <h3>Learn JavaScript, one puzzle at a time.</h3>
+              <a href='#problem-1' class='button button-primary'>Start Now!</a>
+            </div>
+            <div class='one-half column'>
+              <img src='/images/HeroImage.jpg'/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <script type='text/javascript'>
+      $(window).ready(learnjs.appOnReady);
+    </script>
   </body>
 </html>
