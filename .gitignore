@@ -1,4 +1,6 @@
 .DS_Store
+.gitignore
 dist
 working
 master
+public/app.js.save
