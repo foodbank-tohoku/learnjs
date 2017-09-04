@@ -55,7 +55,7 @@ learnjs.popularAnswers = function(problemId) {
   return learnjs.identity.then(function() {
     var lambda = new AWS.Lambda();
     var params = {
-      FunctionName: 'learnjs_popularAnswers',
+      FunctionName: 'popularAnswers',
       Payload: JSON.stringify({problemNumber: problemId})
     };
     return learnjs.sendAwsRequest(lambda.invoke(params), function() {
@@ -138,12 +138,20 @@ learnjs.flashElement = function(elem, content) {
 learnjs.buildCorrectFlash = function (problemNum) {
   var correctFlash = learnjs.template('correct-flash');
   var link = correctFlash.find('a');
+  var popular = correctFlash.find('.popular');
   if (problemNum < learnjs.problems.length) {
     link.attr('href', '#problem-' + (problemNum + 1));
   } else {
     link.attr('href', '');
-    link.text("You're Finished!");
+    link.text('You are Finished!');
   }
+  popular.text('Popular Answers --- ');
+  learnjs.popularAnswers(problemNum).then(function(items){
+    var objs = JSON.parse(items.Payload);
+    for (var key in objs) {
+      popular.append('"' + key + '" : ' + objs[key] + ' , ');
+    }
+  });
   return correctFlash;
 }
 

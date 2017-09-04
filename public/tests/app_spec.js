@@ -173,7 +173,7 @@ describe('LearnJS', function() {
           expect(item).toEqual('item');
           expect(learnjs.sendAwsRequest).toHaveBeenCalledWith('request', jasmine.any(Function));
           expect(lambdaSpy.invoke).toHaveBeenCalledWith({
-            FunctionName: 'learnjs_popularAnswers',
+            FunctionName: 'popularAnswers',
             Payload: JSON.stringify({ problemNumber: 1 })
           });
           done();
